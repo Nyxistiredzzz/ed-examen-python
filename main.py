@@ -11,9 +11,9 @@ bucle_actiu = True
 while bucle_actiu:
     paraula_usuari = input("> ")
 
-    resultat = escriure_linia(nom_fitxer, paraula_usuari)
-
     if paraula_usuari == "final":
         bucle_actiu = False
+    else:
+        resultat = escriure_linia(nom_fitxer, paraula_usuari)
 
 print("Programa finalitzat correctament.")
