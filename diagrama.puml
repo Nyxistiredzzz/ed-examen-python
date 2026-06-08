@@ -1,0 +1,30 @@
+@startuml "Gestor de Documental"
+
+class Fitxer {
+    - cami: String
+    + escriure(contingut: String): Boolean
+}
+
+class GestorDocumental {
+    + processarEntrada()
+}
+
+class Usuari {
+    + id: Integer
+    + nom: String
+}
+
+class Administrador {
+    - nivellPermis: Integer
+}
+
+' Composició: GestorDocumental té Fitxer (rombe ple al costat del tot)
+GestorDocumental "1" *-- "1..*" Fitxer
+
+' Associació: Usuari utilitza GestorDocumental
+Usuari "1" --> "1" GestorDocumental
+
+' Herència: Administrador és un Usuari
+Administrador --|> Usuari
+
+@enduml
