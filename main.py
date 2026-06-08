@@ -1,19 +1,28 @@
 # main.py
 import sys
-from utilitats import funcio1
+from utilitats import escriure_linia
 
-x = sys.argv[1] 
+try:
+    nom_fitxer = sys.argv[1]
+except IndexError:
+    print("Error: Has d'especificar el nom del fitxer per consola.")
+    sys.exit(1)
 
-print(f"--- Iniciant l'enregistrament al fitxer: {x} ---")
+print(f"--- Iniciant l'enregistrament al fitxer: {nom_fitxer} ---")
 print("Escriu text línia per línia. Per acabar, escriu 'final'.")
 
-llista1 = True
-while llista1:
-    b = input("> ")
-    
-    res = funcio1(x, b)
-    
-    if b == "final":
-        llista1 = False
+try:
+    bucle_actiu = True
+    while bucle_actiu:
+        paraula_usuari = input("> ")
+
+        if paraula_usuari == "final":
+            bucle_actiu = False
+        else:
+            resultat = escriure_linia(nom_fitxer, paraula_usuari)
+
+except (FileNotFoundError, PermissionError) as error:
+    print(f"Error en accedir al fitxer: {error}")
+    sys.exit(1)
 
 print("Programa finalitzat correctament.")

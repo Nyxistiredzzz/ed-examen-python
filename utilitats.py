@@ -1,7 +1,6 @@
 # utilitats.py
 
-def funcio1(a, b):
-    f = open(a, "a", encoding="utf-8")
-    f.write(b + "\n")
-    f.close()
+def escriure_linia(nom_fitxer, contingut):
+    with open(nom_fitxer, "a", encoding="utf-8") as fitxer:
+        fitxer.write(contingut + "\n")
     return True
