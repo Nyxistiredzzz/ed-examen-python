@@ -1,19 +1,19 @@
 # main.py
 import sys
-from utilitats import funcio1
+from utilitats import escriure_linia
 
-x = sys.argv[1] 
+nom_fitxer = sys.argv[1]
 
-print(f"--- Iniciant l'enregistrament al fitxer: {x} ---")
+print(f"--- Iniciant l'enregistrament al fitxer: {nom_fitxer} ---")
 print("Escriu text línia per línia. Per acabar, escriu 'final'.")
 
-llista1 = True
-while llista1:
-    b = input("> ")
-    
-    res = funcio1(x, b)
-    
-    if b == "final":
-        llista1 = False
+bucle_actiu = True
+while bucle_actiu:
+    paraula_usuari = input("> ")
+
+    resultat = escriure_linia(nom_fitxer, paraula_usuari)
+
+    if paraula_usuari == "final":
+        bucle_actiu = False
 
 print("Programa finalitzat correctament.")
